@@ -1,16 +1,24 @@
 package com.stepik.collection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Spliterator;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Task2_15 {
 
     public static void main(String[] args) {
+        Queue<String> queue = new PriorityQueue<>();
+        queue.offer("a");
+        queue.offer("c");
+        queue.offer("b");
 
-        spliteratorWork(Arrays.asList(1.0, 4.0, 8.0, 16.0, 99.0, 100.0, 110.0, 121.0));
+        String name = queue.peek();
+        String name1 = queue.poll();
+        String name2 = queue.poll();
+        queue.offer(name);
+
+        queue.forEach(System.out::print);
+        System.out.println();
+//        spliteratorWork(Arrays.asList(1.0, 4.0, 8.0, 16.0, 99.0, 100.0, 110.0, 121.0));
     }
     public static List<Double> spliteratorWork(List<Double> list){
         return list.stream()
