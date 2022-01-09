@@ -30,7 +30,7 @@ public class Task1_3 {
     private static void anotherSolution(List<Integer> list) {
         System.out.println(
                 Math.round(
-                Math.ceil((list.get(0) - list.get(2)) / (double)(list.get(1) - list.get(2)))));
+                Math.ceil((double) (list.get(0) - list.get(2)) / (list.get(1) - list.get(2)))));
     }
 
     private static Integer reachGoal(List<Integer> list, int days) {
