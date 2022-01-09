@@ -1,8 +1,6 @@
 package com.stepik.collection;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Task2_17 {
 
@@ -14,7 +12,9 @@ public class Task2_17 {
         map.put("e", "Hi_b");
         map.put("r", "Hi_b");
         map.put("c", "Hi");
-        System.out.println(mapShare(map).entrySet());
+//        System.out.println(mapShare(map).entrySet());
+
+        printMap(wordCount(new String[]{"a", "b", "c", "a"}));
     }
     public static Map<String, String> mapShare(Map<String, String> map) {
         String a = map.get("a");
@@ -26,6 +26,39 @@ public class Task2_17 {
 
         System.out.println(map.containsKey("c"));
         return map;
+    }
+
+    public static SortedMap<String, Integer> wordCount(String[] strings) {
+        TreeMap<String, Integer> map = new TreeMap<>();
+
+        Arrays.stream(strings).forEach(el -> {
+
+            if (map.containsKey(el)){
+                Integer v = map.get(el);
+                v++;
+                map.replace(el, v);
+            } else {
+                map.put(el, 1);
+            }
+        });
+        return map;
+    }
+    //====================================================================================
+ /*   public static SortedMap<String, Integer> wordCount(String[] strings) {
+        SortedMap<String, Integer> result = new TreeMap<>();
+        Arrays.asList(strings).forEach(x -> result.put(x, result.containsKey(x) ? result.get(x) + 1 : 1));
+        return result;
+   }
+*/
+    //====================================================================================
+/*
+public static SortedMap<String, Integer> wordCount(String[] strings) {
+    return new TreeMap<>(Arrays.stream(strings).collect(Collectors.toMap(k -> k, v -> 1, Integer::sum)));
+}
+ */
+
+    public static void printMap(Map<String, Integer> map){
+        map.forEach((k, v) -> System.out.println(k + " : " + v));
     }
 }
 
