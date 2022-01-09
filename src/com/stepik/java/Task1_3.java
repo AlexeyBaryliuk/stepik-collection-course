@@ -21,9 +21,16 @@ public class Task1_3 {
 
         }
         validateList(list);
+        anotherSolution(list);
 
         System.out.println("Number of days are " + reachGoal(list, days));
 
+    }
+
+    private static void anotherSolution(List<Integer> list) {
+        System.out.println(
+                Math.round(
+                Math.ceil((list.get(0) - list.get(2)) / (double)(list.get(1) - list.get(2)))));
     }
 
     private static Integer reachGoal(List<Integer> list, int days) {
